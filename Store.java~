@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*; 
+import java.math.*;
+
+
+public class Store implements Serializable {
+    
+  private List<Sku> skus;
+  
+  public Store() {
+    skus = new ArrayList<>();
+  }
+  
+  public Store(List<Sku> skus) {
+    this.skus = skus;
+  }
+  
+  public List<Sku> getSkus() {
+    return skus;
+  }
+  
+  public void setSkus(List<Sku> skus) {
+    this.skus = skus;
+  }
+  
+  public void addSku(Sku sku) {
+    skus.add(sku);
+  }
+  
+  @Override
+  public boolean equals(Object other) {
+
+      for(int s = 0; s < skus.size(); s++){
+
+	  if(skus.at(s).equals(other.skus.at(s))){
+
+	      return true;
+	  }
+      }
+
+      return false;
+  }
+  
+  @Override
+  public int hashCode() {
+
+      return 1;
+  }
+}
